@@ -9,6 +9,7 @@ import { SearchComponent } from './search/search.component';
 import { FormsModule } from '@angular/forms';
 import { PizzadetailsComponent } from './pizzadetails/pizzadetails.component';
 import { CardPageComponent } from './card-page/card-page.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { CardPageComponent } from './card-page/card-page.component';
     HomeComponent,
     SearchComponent,
     PizzadetailsComponent,
-    CardPageComponent
+    CardPageComponent,
+    RegisterPageComponent
   ],
   imports: [
     BrowserModule,

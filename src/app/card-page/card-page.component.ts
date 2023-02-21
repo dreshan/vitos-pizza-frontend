@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from '../services/cart/cart.service';
+import { PizzaService } from '../services/pizza/pizza.service';
 import { Cart } from '../shared/pizza/Cart';
 import { CartItem } from '../shared/pizza/CartItem';
 
@@ -11,7 +13,7 @@ import { CartItem } from '../shared/pizza/CartItem';
 export class CardPageComponent implements OnInit {
   cart!:Cart;
   
-  constructor(private cartService: CartService){
+  constructor(private cartService: CartService, private router:Router){
     this.setCart();
   }
 
@@ -33,4 +35,7 @@ export class CardPageComponent implements OnInit {
     this.cart = this.cartService.getCart();
   }
 
+  toPercase(){
+    this.router.navigateByUrl('/register-page');
+  }
 }
