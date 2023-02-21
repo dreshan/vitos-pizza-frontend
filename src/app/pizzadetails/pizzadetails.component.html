@@ -1,0 +1,33 @@
+<div class="container">
+    <img [src]="pizza.imageUrl" [alt]="pizza.name" />
+    
+    <div class="details">
+        <div class="header">
+            <span class="name">
+                {{pizza.name}}
+            </span>
+            <span class="favorite {{pizza.favorite?'':'not'}}">
+                ❤
+            </span>
+        </div>
+    
+        <div class="origins">
+            <span *ngFor="let origin of pizza.origins">
+                {{origin}}
+            </span>
+        </div>
+    
+        <div class="cook-time">
+            <span>
+                Time to cook about <strong>{{pizza.cookTime}}</strong> minutes
+            </span>
+        </div>
+    
+        <div class="price">
+            <span>{{pizza.price|currency}}</span>
+        </div>
+    
+        <button>Add To Cart</button>
+    </div>
+    
+    </div>
