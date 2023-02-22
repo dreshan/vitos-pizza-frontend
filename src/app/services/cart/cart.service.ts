@@ -8,6 +8,7 @@ import { Pizza } from 'src/app/shared/pizza/pizza';
 })
 export class CartService {
   private cart:Cart = new Cart();
+  private cartItem!: CartItem;
 
   addToCart(pizza: Pizza): void {
     let cartItem = this.cart.items.find(item => item.pizza.id == pizza.id);
@@ -33,4 +34,12 @@ export class CartService {
     return this.cart;
   }
   
+  public setCartItem(cartItem: CartItem) {
+    this.cartItem = cartItem;
+  }
+
+  public getCartItem(): CartItem {
+    return this.cartItem;
+  }
+
 }

@@ -7,7 +7,7 @@
     <div class="row">
       <div class="offset-3"></div>
       <div class="col-md-6">
-        <form name="form" #f="ngForm" (ngSubmit)="f.form.valid" novalidate class="feedback-form">
+        <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && registerUserWithOrder(f)" novalidate class="feedback-form">
           <!-- UserName -->
           <table align="center">
 
