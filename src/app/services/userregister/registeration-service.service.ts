@@ -11,6 +11,6 @@ export class RegisterationServiceService {
 
   public registerUserWithOrder(registerPageState:RegisterPageState) {
       alert('in RegisterationServiceService ::::' );
-      return this.httpClient.post<any>('http://localhost:8083/api/v1/currency-exchange/save', registerPageState);
+      return this.httpClient.post<any>('http://localhost:8080/vitospizzaserver/processUnregisteredCart', registerPageState);
   }
 }

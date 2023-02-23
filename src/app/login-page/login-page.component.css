@@ -25,12 +25,12 @@ html, body{
   
   .bigbutton {
     border-radius: 4px;
-    background-color: #f4511e;
+    background-color: #871616;
     border: none;
     color: #FFFFFF;
     text-align: center;
     font-size: 15px;
-    padding: 20px;
+    padding: 10px;
     width: 120px;
     transition: all 0.5s;
     cursor: pointer;

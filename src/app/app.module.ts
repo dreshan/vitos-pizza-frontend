@@ -13,6 +13,8 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import { HttpClientModule} from "@angular/common/http";
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
+import { MenuComponent } from './menu/menu.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { LoginPageComponent } from './login-page/login-page.component';
     CardPageComponent,
     RegisterPageComponent,
     SignupPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    OrderConfirmationComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

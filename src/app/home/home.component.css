@@ -1,24 +1,47 @@
-ul{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    list-style-type: none;
-    padding: 0;
-}
-
-ul li a{
-    height: 20rem;
-    width: 20rem;
-    border: 1px solid whitesmoke;
-    border-radius: 1rem;
-    margin: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    color: #e72929;
-}
-li a:hover{
-    opacity: 0.9;
+.body {
+    background-color: #ffffff !important;
+    background-repeat:no-repeat;
+    width: 100%;
+    color: rgb(91, 4, 4) !important;
+    font: 14px Helvetica, sans-serif;
+  }
+  
+  .bigbutton {
+    border-radius: 4px;
+    background-color: #871616;
+    border: none;
+    color: #FFFFFF;
+    text-align: center; 
+    font-size: 15px;
+    padding: 20px;
+    width: 120px;
+    transition: all 0.5s;
     cursor: pointer;
-}
+    margin: 5px;
+  }
+  
+  .bigbutton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .bigbutton span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .bigbutton:hover span {
+    padding-right: 25px;
+  }
+  
+  .bigbutton:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+  

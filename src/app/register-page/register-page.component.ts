@@ -60,7 +60,8 @@ constructor(private http:HttpClient,
     this.registerationService.registerUserWithOrder(this.registerUserDetails).subscribe(
       (response) => {
         console.log(response);
-        this.router.navigateByUrl('/saved-sucess');
+        console.log('response value ::: '+response.text());
+        this.router.navigateByUrl('/order-confirmation');
       },
       error => {
         console.log(error);
