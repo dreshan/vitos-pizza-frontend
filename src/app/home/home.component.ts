@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PizzaService} from '../services/pizza/pizza.service';
-import { Pizza } from '../shared/pizza/pizza';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,20 +9,11 @@ import { ActivatedRoute } from '@angular/router';
 
 
 export class HomeComponent implements OnInit {
-  pizzas:Pizza[] = [];
 
-  constructor(private pizzaService:PizzaService, private route: ActivatedRoute) { }
 
+  constructor(private router:Router) { }
    ngOnInit() {
-        this.route.params.subscribe(params => {
-          if (params['searchTerm'] ) { 
-            this.pizzas = this.pizzaService.getAll().filter(pizza =>
-              pizza.name.toLowerCase().includes(params['searchTerm'].toLowerCase()));
-            } else {
-              this.pizzas = this.pizzaService.getAll();
-            }
-          
-        })
+
    }
  }
 

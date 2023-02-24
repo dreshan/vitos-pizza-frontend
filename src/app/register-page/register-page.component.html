@@ -7,108 +7,115 @@
     <div class="row">
       <div class="offset-3"></div>
       <div class="col-md-6">
-        <form name="form" #f="ngForm" (ngSubmit)="f.form.valid" novalidate class="feedback-form">
+        <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && registerUserWithOrder(f)" novalidate class="feedback-form">
           <!-- UserName -->
           <table align="center">
 
           <!-- First Name -->
-          <div class="form-group">
+                <div class="form-group">
 
-              <tr>
-                <td><label for="firstname">First name</label></td>
-                <td><input type="text"
-                           id="firstname"
-                           class="form-control"
-                           name="firstname"
-                           placeholder="Your Firstname"
-                           [(ngModel)]="model.firstname"
-                           #firstname="ngModel"
-                           [ngClass]="{ 'is-invalid': f.submitted && firstname.invalid }"
-                           required="required"/></td>
-                <td></td>
-              </tr>
-          </div>
+                    <tr>
+                      <td><label for="firstname">First name</label></td>
+                      <td><input type="text"
+                                id="firstname"
+                                class="form-control"
+                                name="firstname"
+                                placeholder="Your Firstname"
+                                [(ngModel)]="model.firstname"
+                                #firstname="ngModel"
+                                [ngClass]="{ 'is-invalid': f.submitted && firstname.invalid }"
+                                required="required"/></td>
+                      <td></td>
+                    </tr>
+                </div>
 
-          <!-- Last Name -->
-          <div class="form-group">
-              <tr>
-                <td><label for="lastname">Last Name</label></td>
-                <td><input type="text"
-                           id="lastname"
-                           class="form-control"
-                           name="lastname"
-                           placeholder="Your Lastname"
-                           [(ngModel)]="model.lastname"
-                           #lastname="ngModel"
-                           [ngClass]="{ 'is-invalid': f.submitted && lastname.invalid }"
-                           required="required"/></td>
-                <td></td>
-              </tr>
-          </div>
+                <!-- Last Name -->
+                <div class="form-group">
+                    <tr>
+                      <td><label for="lastname">Last Name</label></td>
+                      <td><input type="text"
+                                id="lastname"
+                                class="form-control"
+                                name="lastname"
+                                placeholder="Your Lastname"
+                                [(ngModel)]="model.lastname"
+                                #lastname="ngModel"
+                                [ngClass]="{ 'is-invalid': f.submitted && lastname.invalid }"
+                                required="required"/></td>
+                      <td></td>
+                    </tr>
+                </div>
 
-          <!-- Email -->
-          <div class="form-group">
-              <tr>
-                <td><label for="email">Email</label></td>
-                <td><input
-                           type="text"
-                           id="email"
-                           class="form-control"
-                           name="email"
-                           placeholder="email"
-                           [(ngModel)]="model.email"
-                           #email="ngModel"
-                           [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
-                           required="required"/></td>
-              </tr>
-          </div>
+                <!-- Email -->
+                <div class="form-group">
+                    <tr>
+                      <td><label for="email">Email</label></td>
+                      <td><input
+                                type="text"
+                                id="email"
+                                class="form-control"
+                                name="email"
+                                placeholder="email"
+                                [(ngModel)]="model.email"
+                                #email="ngModel"
+                                [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+                                required="required"/></td>
+                    </tr>
+                </div>
 
-          <!-- Address -->
-          <div class="form-group">
-              <tr>
-                <td><label for="address">Address</label></td>
-                <td><input type="text"
-                           id="address"
-                           class="form-control"
-                           name="address"
-                           placeholder="address"
-                           [(ngModel)]="model.address"
-                           #address="ngModel"
-                           [ngClass]="{ 'is-invalid': f.submitted && address.invalid }"
-                           required="required"/></td>
-                <td></td>
-              </tr>
-          </div>
+                <!-- Address -->
+                <div class="form-group">
+                    <tr>
+                      <td><label for="address">Address</label></td>
+                      <td><input type="text"
+                                id="address"
+                                class="form-control"
+                                name="address"
+                                placeholder="address"
+                                [(ngModel)]="model.address"
+                                #address="ngModel"
+                                [ngClass]="{ 'is-invalid': f.submitted && address.invalid }"
+                                required="required"/></td>
+                      <td></td>
+                    </tr>
+                </div>
 
-          <!-- Phone -->
-          <div class="form-group">
-              <tr>
-                <td><label for="phone">Phone</label></td>
-                <td><input 
-                           type="text"
-                           id="phone"
-                           class="form-control"
-                           name="phone"
-                           placeholder="phone"
-                           [(ngModel)]="model.phone"
-                           #phone="ngModel"
-                           [ngClass]="{ 'is-invalid': f.submitted && phone.invalid }"
-                           maxlength="10"
-                           minlength="10"
-                           required="required"/></td>
-                
-              </tr>
-          </div>
+                <!-- Phone -->
+                <div class="form-group">
+                    <tr>
+                      <td><label for="phone">Phone</label></td>
+                      <td><input 
+                                type="text"
+                                id="phone"
+                                class="form-control"
+                                name="phone"
+                                placeholder="phone"
+                                [(ngModel)]="model.phone"
+                                #phone="ngModel"
+                                [ngClass]="{ 'is-invalid': f.submitted && phone.invalid }"
+                                maxlength="10"
+                                minlength="10"
+                                required="required"/></td>
+                      
+                    </tr>
+                </div>
+
+                  <div class="form-group">
+                    <tr>
+                      <table align="center">
+                        <tr>
+                          <td><button type="submit" class="bigbutton">
+                            <span> Submit</span></button>
+                          </td>
+                          <td><button routerLink="" class="bigbutton"><span>Back to Home</span></button> </td>
+                        </tr>
+                      </table>
+                    </tr>
+                </div>
+
           </table>
 
-          <table align="center">
-            <tr>
-              <td><button type="submit" class="bigbutton">
-                <span> Submit</span></button>
-              </td>
-              <td><button routerLink="" class="bigbutton"><span>Back to Home</span></button> </td>
-            </tr>
-          </table>
+          
 
         </form>
       </div>

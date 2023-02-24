@@ -1,13 +1,13 @@
 <div class="container body">
     <br><br><br><br>
-    <H1 align="center">SpringFood | Registration</H1>
+    <H1 align="center">VITOS PIZZA | Registration</H1>
     <br><br><br>
   
     <div class="container" align="center">
       <div class="row">
         <div class="offset-3"></div>
         <div class="col-md-6">
-          <form name="form" #f="ngForm" (ngSubmit)="emailValidation&&phoneValidation&&passwordValidation&&f.form.valid && registerUser()" novalidate class="feedback-form">
+          <form name="form" #f="ngForm" (ngSubmit)="signupUserInformation(f)" novalidate class="feedback-form">
             <div class="container" style="height: 35px;">
             <div *ngIf="present" class="alert alert-danger alert-box" align="center" style="width: 75%; margin: auto;">
               <strong>UserName Already Taken!</strong>
@@ -30,12 +30,7 @@
                              #username="ngModel"
                              [ngClass]="{ 'is-invalid': f.submitted && username.invalid }"
                              required="required"/></td>
-                  <td>
-                    <div class="container" align="center">
-                      <a (click)="usernamePresent()" data-toggle="tooltip" data-placement="right" title="Click to check availability"><img src="../../assets/images/checkAvailability.png" style="height: 25px;width: 25px"></a>
-                    </div>
-                  </td>
-  
+                    <td><a (click)="usernamePresent()" data-toggle="tooltip" data-placement="right" title="Click to check availability"><img src="../../assets/images/checkAvailability.png" style="height: 25px;width: 25px"></a></td>
                 </tr>
             </div>
             <!-- Password -->
@@ -53,7 +48,7 @@
                              maxlength="16"
                              [ngClass]="{ 'is-invalid': f.submitted && password.invalid }"
                              required="required"/></td>
-                  <td style="width: 58px; height: 35px; vertical-align: bottom" align="center"><a *ngIf="!passwordValidation" class="password" data-toggle="tooltip" data-placement="right" title="Your Password should contain : &#013; 1 special character &#013; 1 Upper Case character &#013; 1 Numeric character &#013; Minumum Length = 8 &#013; Maximum length = 16"><img src="../../assets/images/key.png" style="width: 30px; height: 30px"></a> </td>
+                    <td></td>
                 </tr>
             </div>
   
@@ -106,7 +101,7 @@
                              #email="ngModel"
                              [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
                              required="required"/></td>
-                  <td><a *ngIf="!emailValidation" data-toggle="tooltip" data-placement="right" title="Enter a valid Email Address">Not a valid email</a></td>
+                  <td></td>
                 </tr>
             </div>
   
@@ -143,33 +138,25 @@
                              maxlength="10"
                              minlength="10"
                              required="required"/></td>
-                  <td>
-                    <a *ngIf="!phoneValidation" data-toggle="tooltip" data-placement="right" title="Enter a valid Phone Number">Invalid Phone Number</a>
-                  </td>
+                    <td></td>
                 </tr>
             </div>
+
               <div class="form-group">
                 <tr>
-                  <td>
-                    <label >Account</label>
-                  </td>
-                  <td><select class="form-control" [(ngModel)]="options"
-                  name="options" id="options">
-                    <option>User</option>
-                    <option>Merchant</option>
-                  </select></td>
+                  <table align="center" style="padding-right:10%">
+                    <tr>
+                      <td><button type="submit" class="bigbutton">
+                        <span> Register</span></button>
+                      </td>
+                      <td><button routerLink="/home" class="bigbutton"><span>Home</span></button> </td>
+                    </tr>
+                  </table>
                 </tr>
               </div>
             </table>
   
-            <table align="center" style="padding-right:10%">
-              <tr>
-                <td><button type="submit" class="bigbutton">
-                  <span> Register</span></button>
-                </td>
-                <td><button routerLink="/home" class="bigbutton"><span>Home</span></button> </td>
-              </tr>
-            </table>
+
   
           </form>
         </div>

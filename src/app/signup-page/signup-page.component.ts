@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import { AppComponent, User } from '../app.component';
+import { SignupUserInfor } from '../shared/pizza/SignupUserInfor';
+import { SignupService } from '../services/signup/signup.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-signup-page',
@@ -10,11 +13,24 @@ import { AppComponent, User } from '../app.component';
 })
 export class SignupPageComponent implements OnInit {
 
-  constructor (private httpClient:HttpClient, private router:Router) {}
+  constructor (private httpClient:HttpClient, 
+                private router:Router,
+                private signupService:SignupService) {}
 
   ngOnInit(): void {
     
   }
+
+  signupUserInfor:SignupUserInfor = {
+      username: '',
+      password: '',
+      firstname: '',
+      lastname: '',
+      address: '',
+      email: '',
+      phone: ''
+  }
+
 
   model:User={
     username:'',
@@ -36,26 +52,7 @@ export class SignupPageComponent implements OnInit {
   passwordValidation:boolean=true;
 
 
-  usernamePresent():void{
-    this.fontColor='';
-    let url = "http://localhost:8080/checkUserName";
 
-    this.httpClient.post<boolean>(url,this.model.username).subscribe(
-      res=>{
-        this.present=res;
-        console.log(this.present);
-        if(this.present) {
-          this.fontColor="red";
-          this.usernameAvailability = "UserName Already Taken";
-        }
-        else {
-          this.fontColor="green";
-          this.usernameAvailability = "Available";
-        }
-        this.router.navigate(['register']);
-      }
-    )
-  }
 
 
 checkPhone()
@@ -102,5 +99,41 @@ registerUser():void{
     }
   )
 }
+
+    public signupUserInformation(form: NgForm) : void {
+      this.signupUserInfor = {
+        ...form.value
+      }
+
+      this.signupService.signupUser(this.signupUserInfor).subscribe(
+        (response) => {
+          this.router.navigateByUrl('')
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
+
+    public usernamePresent():void {
+      
+      this.fontColor='';
+      this.signupService.checkUsernameAvailability(this.model.username).subscribe(
+        res=>{
+          alert('1232222' +res);
+          this.present=res;
+          console.log(this.present);
+          if(this.present) {
+            this.fontColor="red";
+            this.usernameAvailability = "UserName Already Taken";
+          } else {
+            this.fontColor="green";
+            this.usernameAvailability = "Available";
+          }
+          this.router.navigate(['sigup-page']);
+        }
+      )
+    }
+
   
 }
