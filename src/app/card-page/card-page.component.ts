@@ -35,7 +35,8 @@ export class CardPageComponent implements OnInit {
     this.cart = this.cartService.getCart();
   }
 
-  toPercase(){
+  toPercase(cartItem:CartItem){
+    this.cartService.setCartItem(cartItem);
     this.router.navigateByUrl('/register-page');
   }
 }

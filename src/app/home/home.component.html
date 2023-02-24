@@ -1,44 +1,12 @@
-<app-search></app-search>
-<ul>
-    <li *ngFor="let pizza of pizzas">
-
-        <a routerLink="/pizza/{{pizza.id}}">
-            <img src="{{pizza}}" alt="">
-            <img src="{{pizza.imageUrl}}" alt="">
-            <div class="content">
-                <div class="name">
-                   {{pizza.name}}
-                </div>
-                <span class="favorite {{pizza.favorite?'':'not'}}">
-                    ❤
-                </span>
-                <!--
-                <star-rating 
-                    [value]="pizza.stars"
-                    [totalstars]="5"
-                    checkedcolor="red"
-                    uncheckedcolor="black"
-                    size="20px"
-                    [readonly]="true">
-                </star-rating>
-                -->
-                <div class="product-item-footer">
-                    <div class="origins">
-                        <span *ngFor="let origin of pizza.origins">
-                             {{origin}}   
-                        </span>
-                    </div>
-                    <div class="cook-time">
-                        <span>🕒</span>
-                        {{pizza.cookTime}}
-                    </div>
-                </div>
-                <div class="price">
-                    <span>
-                        {{pizza.price|currency}}
-                    </span>
-                </div>
-            </div>
-        </a>
-    </li>
-</ul>
+<div class="body">
+    <br><br><br><br>
+    <H1 align="center">VITO PIZZA | A BEST WAY TO ORDER YOUR PIZZA</H1>
+    <br><br><br><br><br><br>
+    <table align="center">
+      <tr>
+        <td><a routerLink="/menu-page"><button class="bigbutton"><span> Menu </span></button></a></td>
+        <td><a routerLink="/login-page"><button class="bigbutton"><span> Login </span></button></a></td>
+        <td><a routerLink="/sigup-page"><button class="bigbutton"><span> Register </span></button></a></td>
+      </tr>
+    </table>
+    </div>

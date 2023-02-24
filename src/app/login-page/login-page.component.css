@@ -1,19 +1,36 @@
-.body {
-    background-color: #ffffff !important;
+html, body{
+    background-color: #ffffff;
+  }
+  
+  .loginbody {
+    background-size:100% 100%;
+    background-color: #ffffff;
     background-repeat:no-repeat;
-    width: 100%;
-    color: rgb(91, 4, 4) !important;
+    color: rgb(0, 0, 0);
     font: 14px Helvetica, sans-serif;
   }
+  
+  label {
+    font: bold 20px Helvetica, sans-serif;
+    display: block;
+    float: left;
+    padding: 5px 10px 0 0;
+  }
+  
+  form div {
+    overflow: hidden;
+    margin: 0 0 5px 0;
+  }
+  
   
   .bigbutton {
     border-radius: 4px;
     background-color: #871616;
     border: none;
     color: #FFFFFF;
-    text-align: center; 
+    text-align: center;
     font-size: 15px;
-    padding: 20px;
+    padding: 10px;
     width: 120px;
     transition: all 0.5s;
     cursor: pointer;
@@ -44,4 +61,5 @@
     opacity: 1;
     right: 0;
   }
+  
   
