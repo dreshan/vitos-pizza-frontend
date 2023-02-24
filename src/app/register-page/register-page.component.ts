@@ -49,7 +49,6 @@ constructor(private http:HttpClient,
 
 
   public registerUserWithOrder(forms: NgForm): void {
-    alert('value :::: '+this.cartService.getCartItem().pizza.name)
     this.registerUserDetails = {
       ...forms.value,
       pizzaName: this.cartService.getCartItem().pizza.name,
@@ -60,7 +59,7 @@ constructor(private http:HttpClient,
     this.registerationService.registerUserWithOrder(this.registerUserDetails).subscribe(
       (response) => {
         console.log(response);
-        console.log('response value ::: '+response.text());
+        console.log('response value ::: '+response.message);
         this.router.navigateByUrl('/order-confirmation');
       },
       error => {

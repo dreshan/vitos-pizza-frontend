@@ -7,7 +7,7 @@
       <div class="row">
         <div class="offset-3"></div>
         <div class="col-md-6">
-          <form name="form" #f="ngForm" (ngSubmit)="emailValidation&&phoneValidation&&passwordValidation&&f.form.valid && registerUser()" novalidate class="feedback-form">
+          <form name="form" #f="ngForm" (ngSubmit)="signupUserInformation(f)" novalidate class="feedback-form">
             <div class="container" style="height: 35px;">
             <div *ngIf="present" class="alert alert-danger alert-box" align="center" style="width: 75%; margin: auto;">
               <strong>UserName Already Taken!</strong>
@@ -30,7 +30,7 @@
                              #username="ngModel"
                              [ngClass]="{ 'is-invalid': f.submitted && username.invalid }"
                              required="required"/></td>
-                    <td></td>
+                    <td><a (click)="usernamePresent()" data-toggle="tooltip" data-placement="right" title="Click to check availability"><img src="../../assets/images/checkAvailability.png" style="height: 25px;width: 25px"></a></td>
                 </tr>
             </div>
             <!-- Password -->

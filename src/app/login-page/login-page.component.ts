@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Route, Router } from '@angular/router';
 import { User } from '../app.component';
+import { LoginPageService } from '../services/login/login-page.service';
 
 @Component({
   selector: 'app-login-page',
@@ -12,12 +13,14 @@ export class LoginPageComponent implements OnInit {
 
 
   ngOnInit(): void {
-    if(sessionStorage.length>0) {
-        this.router.navigate(['card-page']);
-    }
+    // if(sessionStorage.length>0) {
+    //     this.router.navigate(['card-page']);
+    // }
   }
 
-  constructor (private httpClient:HttpClient, private router:Router){}
+  constructor (private httpClient:HttpClient, 
+    private router:Router,
+    private loginPageService:LoginPageService){}
 
   model:Login={
     username:'user',
@@ -27,22 +30,15 @@ export class LoginPageComponent implements OnInit {
   message?:string;
 
   sendFeedback(): void {
-    let url = "http://localhost:8080/login";
-    let key='userData';
-    this.httpClient.post<User>(url,this.model).subscribe(
-      res => {
-        // localStorage.setItem(key,JSON.stringify(res));
-        sessionStorage.setItem(key,JSON.stringify(res));
-        if(res!=null) {
-          this.router.navigate(['card-page']);
-        }
 
-        if(res==null) {
-          this.message = "Username Or Password is Wrong";
-          sessionStorage.clear();
+    let key='userData';
+    this.loginPageService.signinUser(this.model).subscribe(
+      response => {
+        if (response.code == 200 && response.message == "Successfully Signin") {
+          this.router.navigateByUrl('/menu-page');
         }
       },
-      err=>{
+      errormsg=>{
         console.log([this.model]);
         alert("An error has occurred while logging in");
       }

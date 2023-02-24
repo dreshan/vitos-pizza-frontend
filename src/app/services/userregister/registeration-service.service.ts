@@ -10,7 +10,6 @@ export class RegisterationServiceService {
   constructor(private httpClient:HttpClient) { }
 
   public registerUserWithOrder(registerPageState:RegisterPageState) {
-      alert('in RegisterationServiceService ::::' );
       return this.httpClient.post<any>('http://localhost:8080/vitospizzaserver/processUnregisteredCart', registerPageState);
   }
 }
